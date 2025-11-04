@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>I'm Sorry Mera Baby 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffb6c1,#ffe4e1);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:100vh;margin:0;text-align:center;padding:1rem;overflow-x:hidden;
+}
+h1{color:#ff5c8d;font-size:2.5rem;margin:0.5rem 0;}
+p{max-width:600px;line-height:1.6;font-size:1.1rem;}
+img{width:150px;border-radius:20px;margin:1rem;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+button{
+  background:#ff5c8d;color:#fff;border:none;border-radius:20px;
+  padding:12px 25px;margin:8px;font-size:1rem;cursor:pointer;transition:.3s;
+}
+button:hover{transform:scale(1.1);background:#ff8fa3;}
+.heart{font-size:3rem;animation:beat 1s infinite;}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.card{
+  background:#fff;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  padding:1.5rem;max-width:400px;width:100%;margin-top:1.5rem;animation:fadeIn .7s;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+  h1{font-size:2rem;}p{font-size:1rem;}img{width:120px;}button{font-size:.9rem;padding:10px 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="heart">💗</div>
+<h1>I'm Sorry, Mera Kuchu Muchu Bacha 🥺💗</h1>
+<p>I know I messed up and ignored my baby. But I want to make it right — let’s go on a little journey together 🥺💫</p>
+
+<div id="story" class="card">
+  <h2 id="question">Will you pweeease listen to what I have to say? 🥺</h2>
+  <img id="pic" src="https://i.postimg.cc/hzZ89DLS/heart-1777681-640.png" alt="cute bear"/>
+  <div id="buttons">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+</div>
+
+<audio controls autoplay loop style="position:fixed;bottom:10px;left:10px;width:150px;">
+  <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+</audio>
+
+<script>
+const storySteps=[
+  {
+    q:"Will you listen to what I have to say? 🥺",
+    img:"https://i.postimg.cc/1n70pmpk/doe-eyes.png"
+  },
+  {
+    q:"Are you still mad at me? 😔",
+    img:"https://i.postimg.cc/1n70pmpk/doe-eyes.png"
+  },
+  {
+    q:"Can I make it up to you with a big warm hug? 🤗",
+    img:"https://i.postimg.cc/nscQ08cQ/tasty.jpg"
+  },
+  {
+    q:"Will you let me take you out for ice cream? 😋🍦",
+    img:"https://i.postimg.cc/nscQ08cQ/tasty.jpg"
+  },
+  {
+    q:"Do you still love me a little bit? 💞",
+    img:"https://i.postimg.cc/1n70pmpk/doe-eyes.png"
+  },
+];
+let step=0;
+const qEl=document.getElementById('question');
+const pic=document.getElementById('pic');
+const yesBtn=document.getElementById('yesBtn');
+const noBtn=document.getElementById('noBtn');
+const story=document.getElementById('story');
+
+yesBtn.addEventListener('click',()=>{
+  step++;
+  if(step<storySteps.length){
+    qEl.textContent=storySteps[step].q;
+    pic.src=storySteps[step].img;
+  }else{
+    story.innerHTML=`
+      <h2>Yay! You forgave me! 😋💗</h2>
+      <img src="https://i.postimg.cc/nscQ08cJ/celebrate.jpg" alt="happy bunny"/>
+      <p>Thank you for giving me another chance.  
+      I love you more than the words I can say, I just love you sooo damn much mera baby 🥺💗 </p>`;
+  }
+});
+
+noBtn.addEventListener('mouseover',moveBtn);
+noBtn.addEventListener('touchstart',moveBtn);
+function moveBtn(){
+  const x=Math.random()*(window.innerWidth-120);
+  const y=Math.random()*(window.innerHeight-180);
+  noBtn.style.position='absolute';
+  noBtn.style.left=`${x}px`;
+  noBtn.style.top=`${y}px`;
+}
+</script>
+
+</body>
+</html>
